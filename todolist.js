@@ -23,41 +23,38 @@ function getText(event){
 var inputText = document.getElementById("myText").value;
 
 //this creates a <li> element in HTML: by creating the li, grab the input text and associate it with <li> and then attaching <li> to HTML
-    var li = document.createElement('li');
+    var itemList = document.createElement('li');
 // create a class name for li
-li.className="list-group-item";
+itemList.className="list-group-item";
 
 // add text node with input text
-li.appendChild(document.createTextNode(inputText));
+itemList.appendChild(document.createTextNode(inputText));
 //append the li to ul
 var toDoList=document.getElementById('items');
-toDoList.appendChild(li);
+toDoList.appendChild(itemList);
 //this empties the input field and set input field value to null;
 document.getElementById("myText").value="";
+
+itemList.onclick=function(){
+
+    itemList.style.textDecoration='line-through';
+
+    setTimeout(function () {
+toDoList.removeChild(itemList)}, 1000);
+}
 }
 
 // select the text on the to do list to remove
-// var selectItem=document.getElementsByClassName('list-group-item');
 
-// selectItem.addEventListener('click', function(event)){
-//     if (event.target==selectItem){
-// selectItem.toDoList.removeChild(selectItem);
-//     } else
-//     false;
+// itemList.onclick=function(){
+//     itemList.style.textDecoration='line-through';}
+
+
+// itemList.onclick=timeOut;{
+// toDoList.removeChild(itemList);}
+
+
+// }
 // }
 
-function toggleSelect(li){
-    li.classList.toggle('selected');
-}
-
-function singleSelect(li){
-    let selected=toDoList.querySelectAll('li');
-    for (let elem of selected){
-        elem.classList.remove('selected');
-    }
-}
-li.addEventListener('click', function(event){
-if (event.target.tagName= li) return;
-event.target.toDoList.removeChild(li);
-
-}
+// }
